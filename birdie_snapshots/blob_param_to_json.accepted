@@ -1,0 +1,7 @@
+---
+version: 1.1.6
+title: blob_param_to_json
+file: ./test/turso_http_test/param.gleam
+test_name: can_convert_blob_param_to_json_test
+---
+{"name":"foo","value":{"type":"blob","value":"bar"}}

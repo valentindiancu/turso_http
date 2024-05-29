@@ -1,0 +1,7 @@
+---
+version: 1.1.6
+title: int_param_to_json
+file: ./test/turso_http_test/param.gleam
+test_name: can_convert_int_param_to_json_test
+---
+{"name":"foo","value":{"type":"integer","value":"1234"}}

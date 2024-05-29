@@ -1,0 +1,7 @@
+---
+version: 1.1.6
+title: execute_query_request_to_json
+file: ./test/turso_http_test/query.gleam
+test_name: can_convert_execute_query_request_to_json_test
+---
+{"requests":[{"type":"execute","stmt":{"sql":"SELECT * FROM foo","named_args":[]}}]}
