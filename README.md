@@ -44,3 +44,19 @@ pub fn main() {
   |> turso_http.query([query, Close])
 }
 ```
+
+With Params:
+```gleam
+import turso_http
+import turso_http/query.{Execute, Close}
+import turso_http/param.{IntParam}
+
+pub fn main() {
+  let query = Execute("SELECT 1 LIMIT :limit", [
+    IntParam("limit", 10)
+  ])
+
+  turso_http.create_client("{YOUR_DATABASE_URL}", "{YOUR_DATABASE_TOKEN}")
+  |> turso_http.query([query, Close])
+}
+```
