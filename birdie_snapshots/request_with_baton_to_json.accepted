@@ -1,0 +1,7 @@
+---
+version: 1.1.6
+title: request_with_baton_to_json
+file: ./test/turso_http_test/query.gleam
+test_name: can_add_baton_to_request_test
+---
+{"baton":"12345","requests":[{"type":"execute","stmt":{"sql":"SELECT * FROM foo","named_args":[]}}]}

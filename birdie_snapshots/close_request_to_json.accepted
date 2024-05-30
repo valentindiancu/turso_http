@@ -4,4 +4,4 @@ title: close_request_to_json
 file: ./test/turso_http_test/query.gleam
 test_name: can_convert_close_request_to_json_test
 ---
-{"requests":[{"type":"close"}]}
+{"baton":null,"requests":[{"type":"close"}]}

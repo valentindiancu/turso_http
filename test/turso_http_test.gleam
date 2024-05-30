@@ -56,3 +56,12 @@ pub fn can_send_query_request_test() {
   |> turso_http.query([query, Close])
   |> should.be_ok
 }
+
+pub fn can_send_query_request_with_baton_test() {
+  let query = Execute("SELECT 1", [])
+
+  create_testing_client()
+  |> turso_http.with_baton("test_baton")
+  |> turso_http.query([query, Close])
+  |> should.be_ok
+}

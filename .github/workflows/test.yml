@@ -20,4 +20,7 @@ jobs:
           # elixir-version: "1.15.4"
       - run: gleam deps download
       - run: gleam test
+        env:
+          DATABASE_URL: ${{ secrets.TESTING_DATABASE_URL }}
+          DATABASE_TOKEN: ${{ secrets.TESTING_DATABASE_TOKEN }}
       - run: gleam format --check src test

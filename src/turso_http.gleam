@@ -2,14 +2,19 @@ import gleam/dynamic.{type Dynamic}
 import gleam/http.{Post}
 import gleam/http/request
 import gleam/httpc
+import gleam/option.{type Option, None, Some}
 import turso_http/query.{type Query}
 
 pub opaque type Client {
-  Client(database_url: String, auth_token: String)
+  Client(database_url: String, auth_token: String, baton: Option(String))
 }
 
 pub fn create_client(database_url: String, auth_token: String) -> Client {
-  Client(database_url, auth_token)
+  Client(database_url, auth_token, None)
+}
+
+pub fn with_baton(client: Client, baton: String) -> Client {
+  Client(client.database_url, client.auth_token, Some(baton))
 }
 
 pub fn health_check(client: Client) -> Bool {
@@ -43,7 +48,10 @@ pub fn query(client: Client, queries: List(Query)) {
       |> request.set_method(Post)
       |> request.set_header("Authorization", "Bearer " <> client.auth_token)
       |> request.set_header("Content-Type", "application/json")
-      |> request.set_body(query.query_requests_to_json_string(queries))
+      |> request.set_body(query.query_requests_to_json_string(
+        queries,
+        client.baton,
+      ))
 
       httpc.send(req)
     }

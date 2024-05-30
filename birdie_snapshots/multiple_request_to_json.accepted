@@ -4,4 +4,4 @@ title: multiple_request_to_json
 file: ./test/turso_http_test/query.gleam
 test_name: can_convert_multiple_request_to_json_test
 ---
-{"requests":[{"type":"execute","stmt":{"sql":"SELECT * FROM foo","named_args":[]}},{"type":"execute","stmt":{"sql":"SELECT * FROM bar LIMIT :limit","named_args":[{"name":"limit","value":{"type":"integer","value":"10"}}]}},{"type":"close"}]}
+{"baton":null,"requests":[{"type":"execute","stmt":{"sql":"SELECT * FROM foo","named_args":[]}},{"type":"execute","stmt":{"sql":"SELECT * FROM bar LIMIT :limit","named_args":[{"name":"limit","value":{"type":"integer","value":"10"}}]}},{"type":"close"}]}
